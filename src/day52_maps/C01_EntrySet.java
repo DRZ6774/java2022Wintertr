@@ -7,24 +7,33 @@ import java.util.Set;
 
 public class C01_EntrySet {
     public static void main(String[] args) {
-        Map<Integer,String >sinifListMap =MapOlustur.myMap();
+        Map<Integer,String> sinifListMap= MapOlustur.myMap();
+        System.out.println(sinifListMap);
 
-        Set<Map.Entry<Integer,String>>sinifEntrySeti =sinifListMap.entrySet();
+        /*
+        myMap..entrySet(); meyhod'u bize Entry'lerden olusan bir set dondurur
+        Eger bu Entry'leri manipule etmek istiyorsak
+        method'un dondurdugu Set'i yeni bir Set olusturup store etmeliyiz
+         */
 
-        System.out.println("No ısim Soyism Brans D.Yili");
+        Set<Map.Entry<Integer,String>> sinifEntrySeti = sinifListMap.entrySet();
 
-        for (Map.Entry<Integer,String> each:sinifEntrySeti
-             ) {
-            Integer entryKey=each.getKey();
-            String valueStr=each.getValue();
+        System.out.println("No  Isim  Soyisim     Brans  D.Yili");
+        System.out.println("___________________________________");
 
-            String valueArr[]=valueStr.split(",");
+        for (Map.Entry<Integer,String> each: sinifEntrySeti
+        ) {
 
-            System.out.printf("%-4d %-6s %-9s %-6s %s\n" , entryKey , valueArr[0],valueArr[1] , valueArr[2] , valueArr[3]);
+            Integer entryKey= each.getKey();
+            String valueStr= each.getValue();
 
+            String valueArr[]=valueStr.split(", ");
+
+            System.out.printf( "%-4d %-6s %-9s %-6s %s\n" , entryKey, valueArr[0], valueArr[1]
+                    , valueArr[2], valueArr[3]);
 
 
         }
-        
+        System.out.println("___________________________________");
     }
 }
