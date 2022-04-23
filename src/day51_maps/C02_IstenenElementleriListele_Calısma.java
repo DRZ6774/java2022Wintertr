@@ -4,7 +4,7 @@ import day49_maps.MapOlustur;
 
 import java.util.*;
 
-public class C02_IstenenElementleriListele {
+public class C02_IstenenElementleriListele_Calısma {
     /*
     Soru 2 ) Verilen map’te istenen programlama dilini bilen kisileri
     list olarak donduren bir method yaziniz.
@@ -13,19 +13,20 @@ public class C02_IstenenElementleriListele {
 	Sonuc  [Ali, Veli]
 
      */
-
     public static void main(String[] args) {
 
-        Map<Integer,String> sinifMap=  MapOlustur.myMap();
+        Map<Integer, String> sinifMap=MapOlustur.myMap();
         String istenenDil="Dev";
-        List<String> istenenDiliBilenlerListesi = istenenDiliBilenListesiOlustur(sinifMap,istenenDil);
+
+        List<String> istenenDiliBilenlerListesi= istenenDiliBilenListesiOlustur(sinifMap,istenenDil);
+
         System.out.println(istenenDiliBilenlerListesi);
     }
 
     public static List<String> istenenDiliBilenListesiOlustur(Map<Integer, String> sinifMap, String istenenDil) {
-
-        List<String> istenenDiliBilenlerListesi = new ArrayList<>();
+        List<String >istenenDiliBilenlerListesi=new ArrayList<>();
         Collection<String> sinifValueColl =sinifMap.values();
+
         List<String> sinifValueList=new ArrayList<>();
         sinifValueList.addAll(sinifValueColl);
         int outerArrayBoyut= sinifValueList.size();
@@ -42,17 +43,12 @@ public class C02_IstenenElementleriListele {
                 valueMDArr[i][j]=temp[j];
             }
         }
-
         System.out.println(Arrays.deepToString(valueMDArr));
-
         for (int i = 0; i <outerArrayBoyut ; i++) {
             if (valueMDArr[i][2].equals(istenenDil)){
-                istenenDiliBilenlerListesi.add(valueMDArr[i][0]);
+                    istenenDiliBilenlerListesi.add(valueMDArr[i][0]);
             }
         }
-
         return istenenDiliBilenlerListesi;
     }
-
-
 }
